@@ -1,0 +1,30 @@
+server:
+  port: 8890
+spring:
+  application:
+    name: product
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    # 每间隔5s，向服务端发送一次心跳，证明自己依然”存活“
+    lease-renewal-interval-in-seconds: 2
+    # 告诉服务端，如果我10s之内没有给你发心跳，就代表我“死”了，将我踢出掉。
+    lease-expiration-duration-in-seconds: 7
+  client:
+    # 开启健康检查
+#    healthcheck.enabled: true
+    # 取服务注册信息时间间隔
+#    registry-fetch-interval-seconds: 1
+#    #从Eureka服务端获取注册信息的时间间隔
+#    registryFetchIntervalSeconds: 1
+#    #更新实例信息变化到Eureka服务端的间隔时间
+#    instanceInfoReplicationIntervalSeconds: 1
+    #是否注册到Eureka中
+    registerWithEureka: true
+    #是否需要去检索寻找服务，默认是true
+#    fetchRegistry: true
+    healthcheck:
+      enabled: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8880/eureka/,http://${eureka.instance.hostname}:8881/eureka/

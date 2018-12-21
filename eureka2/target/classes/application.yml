@@ -1,0 +1,26 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: eureka2
+eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    # ÿ���5s�������˷���һ��������֤���Լ���Ȼ����
+    lease-renewal-interval-in-seconds: 5
+    # ���߷���ˣ������10s֮��û�и��㷢�������ʹ����ҡ������ˣ������߳�����
+    lease-expiration-duration-in-seconds: 16
+  client:
+    #��Eureka����˻�ȡע����Ϣ��ʱ����
+    registryFetchIntervalSeconds: 1
+    #����ʵ����Ϣ�仯��Eureka����˵ļ��ʱ��
+    instanceInfoReplicationIntervalSeconds: 1
+    #�Ƿ�ע�ᵽEureka��
+    registerWithEureka: true
+    #�Ƿ���Ҫȥ����Ѱ�ҷ���Ĭ����true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8880/eureka/

@@ -1,0 +1,36 @@
+server:
+  port: 8880
+spring:
+  application:
+    name: eureka1
+eureka:
+  server:
+    enable-self-preservation: false
+    # �˴�����������
+#    use-read-only-response-cache: true
+    # ָ�� Eviction Task ��ʱ����ĵ���Ƶ�ʣ������޳����ڵ�ʵ�����˴�δʹ��Ĭ��Ƶ�ʣ�Ƶ��Ϊ��5/�룬Ĭ��Ϊ��60/��
+    # ��Ч��ֹ�������ǣ�Ӧ��ʵ���쳣�ҵ���û���ڹҵ�֮ǰ��֪Eureka serverҪ���ߵ��÷���ʵ����Ϣ���������Ҫ����Eureka server��EvictionTaskȥ�޳���
+    eviction-interval-timer-in-ms: 5000
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    # ÿ���5s�������˷���һ��������֤���Լ���Ȼ����
+#    lease-renewal-interval-in-seconds: 5
+#    # ���߷���ˣ������10s֮��û�и��㷢�������ʹ����ҡ������ˣ������߳�����
+#    lease-expiration-duration-in-seconds: 11
+  client:
+    # �����������
+    healthcheck:
+      enabled: false
+    # ȡ����ע����Ϣʱ����
+    registry-fetch-interval-seconds: 5
+#    #��Eureka����˻�ȡע����Ϣ��ʱ����
+#    registryFetchIntervalSeconds: 1
+#    #����ʵ����Ϣ�仯��Eureka����˵ļ��ʱ��
+#    instanceInfoReplicationIntervalSeconds: 1
+    #�Ƿ�ע�ᵽEureka��
+    registerWithEureka: false
+    #�Ƿ���Ҫȥ����Ѱ�ҷ���Ĭ����true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8880/eureka/

@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: turbine
+server:
+  port: 8871
+management:
+  port: 8875
+turbine:
+  #��Ҫ�ռ���صķ�����
+  app-config: consumer
+#  app-config: dashboard
+  #ָ����Ⱥ����Ϊ"default"
+  cluster-name-expression: "default"
+  #����Ϊtrue��������ͬһ�����ϵķ���ͨ���������Ͷ˿ںŵ�������������
+  #Ĭ������host�����ֲ�ͬ�ķ��������͵��±����ϵĲ�ͬ�ķ���ۺϳ�һ��������ͳ��
+  combine-host-port: true
+#eureka:
+#  client:
+#    #�Ƿ�ע�ᵽEureka��
+#    registerWithEureka: true
+#    #�Ƿ���Ҫȥ����Ѱ�ҷ���Ĭ����true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://${eureka.instance.hostname}:8880/eureka/,http://${eureka.instance.hostname}:8881/eureka/

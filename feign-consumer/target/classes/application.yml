@@ -1,0 +1,21 @@
+server:
+  port: 8910
+spring:
+  application:
+    name: feign-consumer
+ribbon:
+  MaxAutoRetriesNextServer: 2
+feign:
+  hystrix:
+    enabled: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    #�Ƿ�ע�ᵽEureka��
+    registerWithEureka: true
+    #�Ƿ���Ҫȥ����Ѱ�ҷ���Ĭ����true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8880/eureka/,http://${eureka.instance.hostname}:8881/eureka/

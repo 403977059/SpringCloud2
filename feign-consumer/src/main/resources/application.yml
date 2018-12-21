@@ -1,0 +1,21 @@
+server:
+  port: 8910
+spring:
+  application:
+    name: feign-consumer
+ribbon:
+  MaxAutoRetriesNextServer: 2
+feign:
+  hystrix:
+    enabled: true
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    #是否注册到Eureka中
+    registerWithEureka: true
+    #是否需要去检索寻找服务，默认是true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8880/eureka/,http://${eureka.instance.hostname}:8881/eureka/
