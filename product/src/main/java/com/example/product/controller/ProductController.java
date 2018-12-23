@@ -11,7 +11,8 @@ public class ProductController {
     private Logger logger = LoggerFactory.getLogger (ProductController.class);
 
     @RequestMapping(value="product")
-    public String index(){
+    public String index() throws Exception{
+        Thread.sleep(8000);
         logger.info("request product server success.");
         return "request product server success.";
     }
